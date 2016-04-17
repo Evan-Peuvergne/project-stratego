@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- METAS -->
+
+	<meta charset="UTF-8">
+	<title>Home</title>
+
+
+	<!-- STYLES -->
+
+	<link rel="stylesheet" href="/assets/styles/css/app.css">
+
+</head>
+
+<body id="page-home" class="page showed">
+
+	
+	<a href="/" class="logo">
+		<img src="/assets/medias/images/logo.svg" alt="">
+	</a>
+
+	<div class="content">
+		
+		<h1>STRATEGO</h1>
+		<h2>Not just a GO game</h2>
+		<p>
+			Live a real new experience of the traiditionnal Go game invented by chinese. Transform the classic Goban into a real, 3 dimensions, war battle with realistic characters and fights. Ready for the game ? Or maybe you should read the rules again before starting.
+		</p>
+		<div class="buttons">
+			<a href="/play">Play now</a>
+			<a href="#">The rules</a>
+		</div>
+
+	</div>
+
+	
+</body>
+
+</html>
+
+<script src="/assets/js/vendors/jquery.js"></script>
+<script src="/assets/js/vendors/mustache.js"></script>
+<script src="/assets/js/vendors/socket.io.js"></script>
+
+<script src="/app/Game/Game.class.js"></script>
+<script src="/app/Game/Pion.class.js"></script>
+
+<script src="/app/Interface/Goban.class.js"></script>
+
+<script src="/assets/js/scripts/config.js"></script>
+<script src="/assets/js/scripts/home.js"></script>
+
+
+
+
+
+<!-- TEMPLATES -->
+
+
+<!-- MODE -->
+
+<script id="template-mode" type="x-tmpl-mustache">
+	
+	<div id="page-mode" class="page">
+
+		<h1>Modes de jeu</h1>
+
+		<a href="#" class="btn-mode" id="btn-local">Local</a>
+		<a href="#" class="btn-mode" id="btn-online">Online</a>
+
+	</div>
+
+</script>
+
+
+<!-- LOCAL GAME -->
+
+<script id="template-game-local" type="x-tmpl-mustache">
+	
+	<div id="page-game-local" class="page page-game">
+
+		<div class="goban"></div>
+		<a href="#" id="btn-pass">Pass</a>
+
+	</div>
+
+</script>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- METAS -->
+
+	<meta charset="UTF-8">
+	<title>Play</title>
+
+
+	<!-- STYLES -->
+
+	<link rel="stylesheet" href="/assets/styles/css/app.css">
+
+</head>
+
+<body id="page-game" class="page showed">
+
+	
+	<a href="/" class="logo">
+		<img src="/assets/medias/images/logo.svg" alt="">
+	</a>
+
+	<div class="loader" data-loading="Connexion au serveur"></div>
+
+	
+</body>
+
+</html>
+
+
+<script src="/assets/js/vendors/jquery.js"></script>
+<script src="/assets/js/vendors/mustache.js"></script>
+<script src="/assets/js/vendors/socket.io.js"></script>
+<script src="/assets/js/vendors/three.js"></script>
+
+<script src="/assets/js/vendors/orbitcontrols.js"></script>
+<script src="/assets/js/vendors/tween.min.js"></script>
+<script src="/assets/js/vendors/postprocessing/EffectComposer.js"></script>
+<script src="/assets/js/vendors/postprocessing/RenderPass.js"></script>
+<script src="/assets/js/vendors/postprocessing/ShaderPass.js"></script>
+<script src="/assets/js/vendors/postprocessing/MaskPass.js"></script>
+<script src="/assets/js/vendors/shaders/FXAAShader.js"></script>
+<script src="/assets/js/vendors/shaders/CopyShader.js"></script>
+
+
+
+<script src="/app/Game/Game.class.js"></script>
+<script src="/app/Game/Pion.class.js"></script>
+
+<script src="/app/Interface/Goban.class.js"></script>
+<script src="/app/Interface/WebglScene.class.js"></script>
+<script src="/app/Interface/Light.class.js"></script>
+<script src="/app/Interface/Repere.class.js"></script>
+<script src="/app/Interface/Interface.class.js"></script>
+
+<script src="/app/Managers/Rooms.class.js"></script>
+<script src="/app/Managers/Room.class.js"></script>
+
+<script src="/assets/js/scripts/config.js"></script>
+<script src="/assets/js/scripts/game.js"></script>
+
+
+
+
+
+<!-- TEMPLATES -->
+
+
+<!-- ROOMS -->
+
+<script id="template-rooms" type="x-tmpl-mustache">
+	
+	<div class="module-rooms">
+		
+		<div class="module-rooms-list">
+			<h2>Rooms existantes</h2>
+			<ul></ul>
+		</div>
+
+		<div class="module-rooms-new">
+			<h2>Nouvelle room</h2>
+			<p>Pas de partie à votre goût ? Pas de problème, créez votre propre room et attendez votre prochain adversaire !</p>
+			<form action="">
+				<input type="text" placeholder="Nom de votre room ...">
+				<input type="submit" value="OK">
+			</form>
+		</div>
+
+	</div>
+
+</script>
+
+
+<!-- GAMEPLAY -->
+
+<script id="template-gameplay" type="x-tmpl-mustache">
+	
+	<div class="module-gameplay">
+		
+		<div class="goban"></div>
+
+		<div id="opponent" class="player">
+			<span class="player-name">
+				<span>A</span>
+				<span>D</span>
+				<span>V</span>
+				<span>E</span>
+				<span>R</span>
+				<span>S</span>
+				<span>A</span>
+				<span>I</span>
+				<span>R</span>
+				<span>E</span>
+			</span>
+			<span class="stones-played"><span class="score">0</span><span class="label">Pierres jouées</span></span>
+			<span class="stones-captured"><span class="score">0</span><span class="label">Pierres capturées</span></span>
+		</div>
+
+		<div id="you" class="player">
+			<span class="player-name">
+				<span>Y</span>
+				<span>O</span>
+				<span>U</span>
+			</span>
+			<span class="stones-played"><span class="score">0</span><span class="label">Pierres jouées</span></span>
+			<span class="stones-captured"><span class="score">0</span><span class="label">Pierres capturées</span></span>
+		</div>
+
+		<a href="#" id="btn-miss-turn">Passer son tour</a>
+
+	</div>
+
+</script>
+
+
+<!-- POPUP -->
+
+<script id="template-popup" type="x-tmpl-mustache">
+
+	<div class="popup show">
+		<div class="popup-content">
+			
+			<h1>Stratego</h1>
+			<h2>Not just a Go game</h2>
+			<p>{{content}}</p>
+			<div class="buttons">
+				<a href="/play" class="btn btn-primary">Play</a>
+				<a href="/" class="btn btn-primary">Home</a>
+			</div>
+
+		</div>
+	</div>
+
+</script>
+
+
+<!-- SCORES -->
+
+<script id="template-scores" type="x-tmpl-mustache">
+
+	<div class="module-scores">
+		<div class="module-content">
+			
+			<div class="players-scores">
+
+				<div id="opponent" class="score">
+					<h2 class="player-name">Opponent</h2>
+					<div class="score-detail">
+						<div class="won-paws">
+							<span class="score-number">{{ opponent.pions }}</span>
+							<span class="score-label">won pays</span>
+						</div>
+						<div class="lost-paws">
+							<span class="score-number">{{ opponent.captured }}</span>
+							<span class="score-label">lost pays</span>
+						</div>
+						<div class="territory">
+							<span class="score-number">{{ opponent.territory }}</span>
+							<span class="score-label">territories</span>
+						</div>
+					</div>
+					<div class="final-score">{{ opponent.score }}</div>
+				</div>
+
+				<div id="you" class="score">
+					<h2 class="player-name">You</h2>
+					<div class="score-detail">
+						<div class="won-paws">
+							<span class="score-number">{{ you.pions }}</span>
+							<span class="score-label">won pays</span>
+						</div>
+						<div class="lost-paws">
+							<span class="score-number">{{ you.captured }}</span>
+							<span class="score-label">lost pays</span>
+						</div>
+						<div class="territory">
+							<span class="score-number">{{ you.territory }}</span>
+							<span class="score-label">territories</span>
+						</div>
+					</div>
+					<div class="final-score">{{ you.score }}</div>
+				</div>
+
+			</div>
+
+			<div class="game-state">{{ state }}</div>
+
+			<div class="actions">
+				<a href="/play" class="btn btn-primary">Play</a>
+				<a href="/" class="btn btn-primary">Home</a>
+			</div>
+
+		</div>
+	</div>
+
+</script>
+
+
+<!-- SHADERS -->
+
+
+<script type="x-shader/x-vertex" id="vertexShader">
+
+	varying vec3 vWorldPosition;
+
+	void main() {
+
+		vec4 worldPosition = modelMatrix * vec4( position, 1.0 );
+		vWorldPosition = worldPosition.xyz;
+
+		gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+	}
+
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentShader">
+
+	uniform vec3 topColor;
+	uniform vec3 bottomColor;
+	uniform float offset;
+	uniform float exponent;
+
+	varying vec3 vWorldPosition;
+
+	void main() {
+
+		float h = normalize( vWorldPosition + offset ).y;
+		gl_FragColor = vec4( mix( bottomColor, topColor, max( pow( max( h , 0.0), exponent ), 0.0 ) ), 1.0 );
+
+	}
+
+</script>

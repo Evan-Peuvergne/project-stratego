@@ -1,0 +1,268 @@
+
+
+	/* PAGE */
+
+
+	.page{
+		
+		display: none;
+		width:100%;
+		height:100%;
+
+	
+		// Animations
+
+		&.show{
+
+			display: block;
+
+		}
+
+		&.leave{
+
+			display: none;
+
+		}
+
+
+		// States
+
+		&.showed{ display: block; }
+
+		&.hidden{ display: none; }
+
+	}
+
+
+
+
+
+
+
+	/* GOBAN */
+
+
+	.goban{
+
+		div{
+
+			float:left;
+
+			div{
+
+				display: block;
+				width:30px;
+				height:30px;
+				border:1px solid #000000;
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+
+
+	/* PRIMARY BUTTONS */
+
+
+	.btn.btn-primary{
+
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		position:relative;
+		height:3rem;
+		text-decoration: none;
+		font-family: $font-epic;
+		font-size:1.2rem;
+		overflow: hidden;
+		
+		&:after{
+
+			display: block;
+			content:'';
+			background-image:url(../../medias/images/bck_blood.png);
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-position:center;
+			position:absolute;
+			z-index:10;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			opacity:0;
+			transform:translateY(-2rem);
+			transition:all 0.1s ease;
+
+		}
+
+
+		// Hover
+
+		&:hover{
+
+			color:$third;
+
+			&:after{
+
+				opacity: 1;
+				transform:none;
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+
+
+
+	/* POPUP */
+
+
+	// Style
+
+	.popup{
+		
+		display: none;
+		align-items:center;
+		justify-content:center;
+		position:absolute;
+		z-index:500;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+
+		.popup-content{
+
+			width:18rem;
+			height:auto;
+			background-color:$second;
+			padding:2rem;
+			text-align:center;
+			box-shadow: 1px 1px 5px rgba(#000000, 0.1);
+
+			h1, h2{
+
+				font-weight: bold;
+				text-transform: uppercase;
+
+			}
+
+			h1{
+
+				font-size:4rem;
+				letter-spacing:0.02rem;
+
+			}
+
+			h2{
+
+				font-size:1.8rem;
+				padding-bottom:1rem;
+				border-bottom:2px solid $primary;
+				margin-bottom:1rem;
+
+			}
+
+			p{
+			
+				font-size:1.2rem;
+				line-height:1.2;
+				margin-bottom:1rem;
+
+			}
+
+			.buttons{
+			
+				display: flex;
+				margin-top:2rem;
+
+				a{
+					
+					position:relative;
+					z-index:20;
+					display: flex;
+					justify-content:center;
+					align-items:center;
+					position:relative;
+					width:50%;
+					height:3rem;
+					text-decoration: none;
+					font-family: $font-epic;
+					font-size:1.2rem;
+					overflow: hidden;
+					
+					&:after{
+
+						display: block;
+						content:'';
+						background-image:url(../../medias/images/bck_blood.png);
+						background-size:contain;
+						background-repeat: no-repeat;
+						background-position:center;
+						position:absolute;
+						z-index:10;
+						top:0;
+						left:0;
+						width:100%;
+						height:100%;
+						opacity:0;
+						transform:translateY(-2rem);
+						transition:all 0.1s ease;
+
+					}
+
+
+					// Hover
+
+					&:hover{
+
+						color:$third;
+
+						&:after{
+
+							opacity: 1;
+							transform:none;
+
+						}
+
+					}
+
+				}
+
+			}	
+		
+		}
+
+	}
+
+
+	// Animations
+
+	.popup.show{
+
+		display: flex;
+
+		.popup-content{
+
+			animation-name:'ContentEnter';
+			animation-duration:0.6s;
+			animation-delay:1s;
+			animation-timing-function:ease;
+			animation-fill-mode:both;
+
+		}
+
+	}

@@ -1,0 +1,44 @@
+	
+
+	/* VARIABLES */
+
+
+	// Colors
+	
+	$primary: #003041;
+	$second: #F6EDB6;
+	$third: #8A201D;
+
+
+	// Fonts
+	
+	$font-epic: Nuku;
+	$font-text: Akzidenz;
+
+
+
+
+
+
+
+	/* IMPORTS */
+
+
+	@import 'reset';
+	@import 'global';
+	@import 'modules';
+	@import 'assets';
+	@import 'animations';
+
+
+
+
+
+
+
+	/* PAGES */
+
+
+	#page-home{ @import 'pages/home'; }
+	#page-game{ @import 'pages/game'; }
+	#page-scores{ @import 'pages/scores'; }

@@ -1,0 +1,446 @@
+
+
+	/* APPEARING */
+
+
+	// Page Appear
+
+	@keyframes PageAppear {
+
+		0%{
+
+			opacity:0;
+
+		}
+
+		100%{
+
+			opacity:1;
+
+		}
+
+	}
+
+
+	// Content Enter
+
+	@keyframes ContentEnter {
+
+		0%{
+			
+			opacity:0;
+			transform:translateY(-5rem);
+
+		}
+
+		100%{
+			
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+	// Content Enter From Bottom
+
+	@keyframes ContentEnterFromBottom {
+
+		0%{
+
+			opacity:0;
+			transform:translateY(3rem);
+
+		}
+
+		100%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+	// Loader enter
+
+	@keyframes LoaderEnter {
+
+		0%{
+
+			opacity:0;
+			transform:translateY(3rem);
+
+		}
+
+		100%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+	// Goban Enter
+
+	@keyframes GobanEnter{
+
+		0%{
+
+			opacity:0;
+
+		}
+
+		100%{
+
+			opacity:1;
+
+		}
+
+	}
+
+
+	// Opponent Enter
+
+	@keyframes OpponentEnter{
+
+		0%{
+
+			opacity:0;
+			transform:translateX(-70%);
+
+		}
+
+		100%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+	// You Enter
+
+	@keyframes YouEnter{
+
+		0%{
+
+			opacity:0;
+			transform:translateX(70%);
+
+		}
+
+		100%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+	// Btn Miss
+
+	@keyframes BtnMissTurnEnter{
+
+		0%{
+
+			opacity:0;
+
+		}
+
+		100%{
+
+			opacity:1;
+
+		}
+
+	}
+
+	@keyframes BtnMissTurnLeave{
+
+		0%{
+
+			opacity:1;
+
+		}
+
+		100%{
+
+			opacity:0;
+
+		}
+
+	}
+
+
+	// Room Elem Enter
+
+	@keyframes RoomElemEnter {
+
+		0%{
+
+			opacity:0;
+			transform:translateX(-2rem);
+
+		}
+
+		100%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+	}
+
+
+
+
+
+
+	
+	/* LEAVE */
+
+
+	// Content Leave
+
+	@keyframes ContentLeave {
+
+		0%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+		100%{
+
+			opacity:0;
+			transform:translateY(5rem);
+
+		}
+
+	}
+
+
+	// Loader Leave
+
+	@keyframes LoaderLeave {
+
+		0%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+		100%{
+
+			opacity:0;
+			transform:translateY(3rem);
+
+		}
+
+	}
+
+
+	// Logo Leave
+
+	@keyframes LogoLeave {
+
+		0%{
+
+			transform:none;
+			opacity:1;
+
+		}
+
+		30%{
+
+			transform:scale(1.2);
+			opacity:0.9;
+
+		}
+
+		100%{
+
+			transform:scale(0.7);
+			opacity:0;
+
+		}
+
+	}
+
+
+	// Opponent Leave
+
+	@keyframes OpponentLeave {
+
+		0%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+		100%{
+
+			opacity:0;
+			transform:translateX(-70%);
+
+		}
+
+	}
+
+
+	// You Leave
+
+	@keyframes YouLeave {
+
+		0%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+		100%{
+
+			opacity:0;
+			transform:translateX(70%);
+
+		}
+
+	}
+
+	
+
+
+
+
+
+
+	/* EMPHASIS */
+
+
+	// Loading Spinner
+
+	@keyframes LoadingSpinner {
+
+		0%{
+
+			transform:rotate(0) scale(1);
+
+		}
+
+		50%{
+
+			transform:rotate(180deg) scale(1);
+
+		}
+
+		100%{
+
+			transform:rotate(360deg) scale(1);
+
+		}
+
+	}
+
+
+	// Player
+
+	@keyframes PlayerRightActive {
+
+		0%{
+
+			transform:none;
+			opacity: 0.3;
+
+		}
+
+		30%{
+
+			transform:translateX(-2rem);
+			opacity:0.9;
+
+		}
+
+		100%{
+
+			transform:none;
+			opacity:1;
+
+		}
+
+	}
+
+	@keyframes PlayerLeftActive {
+
+		0%{
+
+			transform:none;
+			opacity: 0.3;
+
+		}
+
+		30%{
+
+			transform:translateX(2rem);
+			opacity:0.9;
+
+		}
+
+		100%{
+
+			transform:none;
+			opacity:1;
+
+		}
+
+	}
+
+	@keyframes PlayerDisabled {
+
+		0%{
+
+			opacity:1;
+
+		}
+
+		100%{
+
+			opacity:0.3;
+
+		}
+
+	}
+
+
+	// Room Elem Leave
+
+	@keyframes RoomElemLeave {
+
+		0%{
+
+			opacity:1;
+			transform:none;
+
+		}
+
+		100%{
+
+			opacity:0;
+			transform:translateX(-2rem);
+
+		}
+
+	}

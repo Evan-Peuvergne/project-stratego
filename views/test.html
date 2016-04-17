@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- METAS -->
+
+	<meta charset="UTF-8">
+	<title>Home</title>
+
+
+	<!-- STYLES -->
+
+	<link rel="stylesheet" href="/assets/styles/css/app.css">
+
+</head>
+
+<body id="page-game" class="page showed">
+
+	
+	<a href="/" class="logo hide">
+		<img src="/assets/medias/images/logo.svg" alt="">
+	</a>
+
+	<div class="module-gameplay show">
+		
+		<div class="goban"></div>
+
+		<!-- <div id="opponent" class="player">
+			<span class="player-name">
+				<span>A</span>
+				<span>D</span>
+				<span>V</span>
+				<span>E</span>
+				<span>R</span>
+				<span>S</span>
+				<span>A</span>
+				<span>I</span>
+				<span>R</span>
+				<span>E</span>
+			</span>
+			<span class="stones-played"><span class="score">10</span><span class="label">Pierres jouées</span></span>
+			<span class="stones-captured"><span class="score">10</span><span class="label">Pierres jouées</span></span>
+		</div>
+
+		<div id="you" class="player">
+			<span class="player-name">
+				<span>Y</span>
+				<span>O</span>
+				<span>U</span>
+			</span>
+			<span class="stones-played"><span class="score">10</span><span class="label">Pierres jouées</span></span>
+			<span class="stones-captured"><span class="score">10</span><span class="label">Pierres jouées</span></span>
+		</div>
+
+		<a href="#" id="btn-miss-turn">Passer son tour</a> -->
+
+	</div>
+
+	<div class="module-scores">
+		<div class="module-content">
+			
+			<div class="players-scores">
+
+				<div id="opponent" class="score">
+					<h2 class="player-name">Opponent</h2>
+					<div class="score-detail">
+						<div class="won-paws">
+							<span class="score-number">10</span>
+							<span class="score-label">won pays</span>
+						</div>
+						<div class="lost-paws">
+							<span class="score-number">10</span>
+							<span class="score-label">lost pays</span>
+						</div>
+						<div class="territory">
+							<span class="score-number">10</span>
+							<span class="score-label">territories</span>
+						</div>
+					</div>
+					<div class="final-score">325</div>
+				</div>
+
+				<div id="you" class="score">
+					<h2 class="player-name">You</h2>
+					<div class="score-detail">
+						<div class="won-paws">
+							<span class="score-number">10</span>
+							<span class="score-label">won pays</span>
+						</div>
+						<div class="lost-paws">
+							<span class="score-number">10</span>
+							<span class="score-label">lost pays</span>
+						</div>
+						<div class="territory">
+							<span class="score-number">10</span>
+							<span class="score-label">territories</span>
+						</div>
+					</div>
+					<div class="final-score">325</div>
+				</div>
+
+			</div>
+
+			<div class="game-state">You loose</div>
+
+			<div class="actions">
+				<a href="#" class="btn btn-primary">Play</a>
+				<a href="#" class="btn btn-primary">Home</a>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- <div class="popup show">
+		<div class="popup-content">
+			
+			<h1>Stratego</h1>
+			<h2>Not just a Go game</h2>
+			<p>Votre adversaire s'est malheureusement déconnecté, mettant ainsi fin à la partie.</p>
+			<div class="buttons">
+				<a href="#" class="btn btn-primary">Play</a>
+				<a href="#" class="btn btn-primary">Home</a>
+			</div>
+
+		</div>
+	</div> -->
+
+	<div class="loader" data-loading="Connexion au serveur"></div>
+
+	
+</body>
+
+</html>
+
+<script src="/assets/js/vendors/jquery.js"></script>
+<script src="/assets/js/vendors/mustache.js"></script>
+<script src="/assets/js/vendors/socket.io.js"></script>
+
+<script src="/app/Game/Game.class.js"></script>
+<script src="/app/Game/Pion.class.js"></script>
+
+<script src="/app/Interface/Goban.class.js"></script>
+
+<script src="/app/Managers/Rooms.class.js"></script>
+
+<script src="/assets/js/scripts/config.js"></script>
+<!-- <script src="/assets/js/scripts/game.js"></script> -->
+
+
+
+
+
+<!-- TEMPLATES -->
+
+
+<!-- ROOMS -->
+
+<script id="template-rooms" type="x-tmpl-mustache">
+	
+	<div class="module-rooms">
+		
+		<div class="module-rooms-list">
+			<h2>Rooms existantes</h2>
+			<ul></ul>
+		</div>
+
+		<div class="module-rooms-new">
+			<h2>Nouvelle room</h2>
+			<p>Pas de partie à votre goût ? Pas de problème, créez votre propre room et attendez votre prochain adversaire !</p>
+			<form action="">
+				<input type="text" placeholder="Nom de votre room ...">
+				<input type="submit" value="OK">
+			</form>
+		</div>
+
+	</div>
+
+</script>
+
+
+<script src="/assets/js/vendors/jquery.js"></script>
+
+<script>
+	
+
+$(document).ready(function ()
+{
+
+	setTimeout(function (){ $('.module-gameplay').addClass('end'); $('.module-scores').addClass('show'); }, 3000);
+
+});
+
+
+</script>
